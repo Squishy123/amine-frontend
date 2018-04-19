@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  div(id='test')
   div(class='container')
     div(class='row')
       div(class='col-md-6')
@@ -8,3 +9,7 @@ block content
       div(class='col-md-6')
         p Welcome to #{title}
   p Powered By Bootstrap 4.0
+  script.
+    for(let i = 0; i < 10; i++) {
+      $('#test').append('<p>Added from Script</p>')
+    }
