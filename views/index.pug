@@ -1,15 +1,7 @@
 extends layout
 
 block content
-  div(id='test')
-  div(class='container')
-    div(class='row')
-      div(class='col-md-6')
-        h1= title
-      div(class='col-md-6')
-        p Welcome to #{title}
-  p Powered By Bootstrap 4.0
-  script.
-    for(let i = 0; i < 10; i++) {
-      $('#test').append('<p>Added from Script</p>')
-    }
+  div(class="container justify-content-center" style="margin-top: 15px")
+    div(class="jumbotron")
+      h1(class="display-4")= title
+      p(class="lead") Welcome to #{title}
