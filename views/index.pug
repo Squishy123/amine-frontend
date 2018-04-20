@@ -15,7 +15,7 @@ block content
             div(class="col-md-4 justify-content-center")
               p= temp[j].title
               button(class="btn btn-primary" type="button" data-toggle="collapse" data-target=`#${temp[j]._id}` aria-expanded="false" aria-controls=temp[j]._id)
-                text Open Episodes
+                text Episodes
               div(class="collapse" id=temp[j]._id)
                 ul(class="list-group")
                   each ep, num in temp[j].episodes
