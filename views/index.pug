@@ -1,13 +1,31 @@
 extends layout
 
+block header
+      div(class="container-fluid")
+        nav(class="navbar navbar-dark bg-dark justify-content-between text-white")
+          a(class="navbar-brand" herf="#")
+            h1 Amine
+          form(class="form-inline")
+            input(class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search")
+            button(class="btn btn-outline-success my-2 my-sm-0" type="submit")
+              text Search
 block content
   div(class="container-fluid justify-content-center" style="margin-top: 15px")
     div(class="jumbotron")
       h1(class="display-4") Amine Prototype
       p(class="lead") Welcome to Amine
+  block control
+  div(class="container-fluid justify-content-center" style="margin-top: 15px")
+    div(id="alerts")
+    div(class="jumbotron")
+      h1(class="lead") Scrape Anime
+      form(class="form-inline")
+        input(class="form-control mr-sm-2" type="search" placeholder="Title" aria-label="Search")
+        button(class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="scrapeAnime")
+          text Scrape
   block list
     div(class="container-fluid" id="list") 
-      if animelist 
+    - if (animelist)
       - for(let i = 0; i < animelist.length; i+=3)
         div(class="row")  
           - let temp = animelist.slice(i, i+3)
@@ -23,4 +41,5 @@ block content
                       ul(class="list-group")
                         each src in ep.sources 
                           a(class="list-group-item list-group-item-action" href=src.url)=src.quality[0]
-            
+  block scripts
+    script(src="/javascripts/main.js")
