@@ -25,21 +25,21 @@ block content
           text Scrape
   block list
     div(class="container-fluid" id="list") 
-    - if (animelist)
-      - for(let i = 0; i < animelist.length; i+=3)
-        div(class="row")  
-          - let temp = animelist.slice(i, i+3)
-          - for(let j = 0; j < temp.length; j++) 
-            div(class="col-md-4 justify-content-center")
-              p= temp[j].title
-              button(class="btn btn-primary" type="button" data-toggle="collapse" data-target=`#${temp[j]._id}` aria-expanded="false" aria-controls=temp[j]._id)
-                text Episodes
-              div(class="collapse" id=temp[j]._id)
-                ul(class="list-group")
-                  each ep, num in temp[j].episodes
-                    li(class="list-group-item")= `Episode ${num}` 
-                      ul(class="list-group")
-                        each src in ep.sources 
-                          a(class="list-group-item list-group-item-action" href=src.url)=src.quality[0]
+      - if (animelist)
+        - for(let i = 0; i < animelist.length; i+=3)
+          div(class="row")  
+            - let temp = animelist.slice(i, i+3)
+            - for(let j = 0; j < temp.length; j++) 
+              div(class="col-md-4 justify-content-center")
+                p= temp[j].title
+                button(class="btn btn-primary" type="button" data-toggle="collapse" data-target=`#${temp[j]._id}` aria-expanded="false" aria-controls=temp[j]._id)
+                  text Episodes
+                div(class="collapse" id=temp[j]._id)
+                  ul(class="list-group")
+                    each ep, num in temp[j].episodes
+                      li(class="list-group-item")= `Episode ${num}` 
+                        ul(class="list-group")
+                          each src in ep.sources 
+                            a(class="list-group-item list-group-item-action" href=src.url)=src.quality[0]
   block scripts
     script(src="/javascripts/main.js")
